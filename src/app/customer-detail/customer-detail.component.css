@@ -1,0 +1,158 @@
+.breadcrumb {
+  padding-top: 2rem;
+  font-size: 2.25rem;
+  font-weight: 400;
+}
+.breadcrumb .col-12 {
+  display: flex;
+  justify-content: space-between;
+}
+.breadcrumb p {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.breadcrumb button {
+  max-height: 2.5rem;
+  margin-block: auto;
+  background-color: transparent;
+  border: 1px solid #4500e0;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  color: #4500e0;
+  padding: 1.5rem 2rem;
+}
+.active p:after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background-color: #37ce77;
+  box-shadow: 0px 1px 14px #11ce20;
+  margin-left: 1.5rem;
+}
+.inactive p:after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  -moz-border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  border-radius: 7.5px;
+  background-color: #ce3737;
+  box-shadow: 0px 0px 12px #ce3837;
+  margin-left: 1.5rem;
+}
+.customer-data {
+  background-color: white;
+  box-shadow: 0px 0px 48px #c6cce3e5;
+  border-radius: 20px 0 0 0;
+  min-height: 100vh;
+  height: 100%;
+  padding-inline: 2rem;
+}
+.container-1600 {
+  max-width: 1500px;
+  margin: auto;
+  padding-inline: 2rem;
+}
+::ng-deep .mat-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+button[type="submit"] {
+  max-height: 2.5rem;
+  margin-block: auto;
+  background-color: #4500e0;
+  display: flex;
+  align-items: center;
+  margin-right: 3rem;
+  color: white;
+  padding-block: 1rem;
+}
+.active-status .muted {
+  font-size: 0.875rem;
+  line-height: 0.875;
+}
+.progress-circle {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.highlight-square {
+  box-shadow: 1px 1px 52px #c6cbde;
+  border-radius: 24px;
+  height: 100%;
+  margin-inline: 1rem;
+  padding: 2rem;
+  width: 450px;
+  max-width: 100%;
+}
+.total-spent {
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.total-spent p {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #4500e0;
+  text-shadow: 0px 3px 26px #AAAAFF;
+}
+.rental-dollars p {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.rental-dollars button {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  color: black;
+}
+.top-rented-films {
+  height: 75%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.category-pill {
+  background-color: #4500e0;
+  color: white;
+  padding: 1rem 2rem;
+  width: 100%;
+  border-radius: 100px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+  max-height: 5rem;
+}
+.top-rented-films img {
+  max-width: 100px;
+  opacity: .8;
+  transform: rotate(15deg);
+  overflow: hidden;
+}
+.top-rented-films p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.customer-profile label {
+  margin-bottom: 0.5rem;
+}
+.customer-profile input {
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #5376935a;
+  padding-block: 0.75rem;
+}

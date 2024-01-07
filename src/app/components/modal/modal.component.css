@@ -1,0 +1,20 @@
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    top: 0;
+    width: calc(100% - 250px); 
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  .content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 3rem;
+    border: 1px solid #888;
+    width: 50%;
+    border-radius: 8px;
+  }

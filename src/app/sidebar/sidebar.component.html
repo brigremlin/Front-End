@@ -1,0 +1,32 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [opened]="screenWidth > 1200" fxHide.lt-md>
+    <div class="sidenav-container">
+      <div class="sidebar-logo">
+        <img src="../../assets/images/Group 47@2x.png" alt="Briflix Logo" />
+      </div>
+
+      <div class="sidebar-buttons">
+        <button mat-button class="menu-button" routerLink="/">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/reporting">
+          <mat-icon>description</mat-icon>
+          <span>Reports</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/transaction">
+          <mat-icon> attach_money</mat-icon>
+          <span>New Transaction</span>
+        </button>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <button class="sidenav-toggle" mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,18 @@
+.breadcrumb {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+::ng-deep .mat-icon {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+button[type="submit"] {
+  background-color: #6f42c1;
+  color: white;
+  margin-left: 0.5rem;
+}
+.active-status .muted {
+  font-size: 0.875rem;
+  line-height: 0.875;
+}

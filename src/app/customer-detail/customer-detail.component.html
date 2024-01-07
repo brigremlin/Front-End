@@ -1,0 +1,219 @@
+<!-- BREADCRUMB SECTION -->
+<div class="container-1600">
+  <div class="row">
+    <div class="breadcrumb">
+      <div
+        class="col-12 d-flex"
+        [routerLink]="['/']"
+        [ngClass]="customer.activebool == true ? 'active' : 'inactive'"
+      >
+        <p *ngIf="customer">{{ this.first_name }} {{ this.last_name }}</p>
+        <button routerLink="/">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="customer-data mx-3">
+  <div class="container-1600">
+    <div class="customer-info py-3">
+      <div class="row my-5">
+        <div class="col-12">
+          <div class="customer-profile">
+            <form #postForm="ngForm" (ngSubmit)="onEnter()">
+              <div class="customer-details">
+                <div class="heading mb-2">
+                  <div class="col-10">
+                    <h2>Personal Information</h2>
+                  </div>
+                </div>
+                <!-- Name -->
+                <div class="row g-3 mb-3 p-2">
+                  <div class="col-3">
+                    <label for="First Name">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="{{ first_name }}"
+                      id="first_name"
+                      [(ngModel)]="first_name"
+                      name="first_name"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label for="Last Name">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder=""
+                      value="{{ last_name }}"
+                      id="last_name"
+                      [(ngModel)]="last_name"
+                      name="last_name"
+                      required
+                    />
+                  </div>
+                  <!-- Email -->
+                  <div class="col-3">
+                    <label for="">Email</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="{{ email }}"
+                      id="email"
+                      [(ngModel)]="email"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div class="col-3">
+                    <div class="active-status">
+                      <p>Status</p>
+                      <!-- <p class="muted">
+                        Customers who have an active status will be automatically
+                        enrolled in promotional marketing campaigns and targeted
+                        advertising. Please gain customer consent before updating
+                        their account status.
+                      </p> -->
+                      <mat-checkbox
+                        color="primary"
+                        class="example-margin"
+                        [checked]="activebool"
+                        (change)="toggleActiveStatus()"
+                        >Active</mat-checkbox
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 mb-2">
+                <button type="submit" class="btn btn-sm button-submit me-4 mb-1">
+                  Update Customer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- CUSTOMER STATS  -->
+    <div class="row customer-stats mb-5 py-5">
+      <!-- Rental Average -->
+      <div class="col-lg-4 col-md-12">
+        <div class="row">
+          <div class="col-12">
+            <div class="progress-circle highlight-square">
+              <p>Rental Average</p>
+              <circle-progress
+                [percent]="rentalAverage"
+                [radius]="100"
+                [outerStrokeWidth]="16"
+                [innerStrokeWidth]="16"
+                [outerStrokeColor]="'#4500e0'"
+                [innerStrokeColor]="'#AAAAFF'"
+                [animation]="true"
+                [animationDuration]="300"
+              ></circle-progress>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Rental Average -->
+  
+      <!-- Total Spent -->
+      <div class="col-lg-4 col-md-12 text-center">
+        <div class="rental-dollars highlight-square">
+          <p>
+            Total Spent
+          </p>
+          <div class="total-spent hidden" #totalSpent>
+            <p>${{ this.rentalSum.toFixed(2) }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- End Total Spent -->
+  
+      <!-- Top Rentals Start -->
+      <div class="col-lg-4 col-md-12 text-center">
+        <div class="top-rented highlight-square">
+          <p>{{ first_name }}'s Most Rented Category</p>
+        <div class="top-rented-films">
+          <div class="category-pill">
+            <p *ngIf="topRentedCat != null">{{ topRentedCat[0] }}</p>
+          <img src="../../assets/images/Film.png" alt="film graphic">
+          </div>
+        </div>
+        </div>
+      </div>
+      <!-- Top Rentals End -->
+    </div>
+    <!-- END CUSTOMER STATS -->
+  
+    <!-- CUSTOMER DETAILS -->
+    <div class="row g-3 mb-3 p-3">
+      <div class="col-12">
+        <div class="report-table">
+          <div class="row g-3 mb-3 p-3">
+            <div class="col-12">
+              <h2>Rental History</h2>
+            </div>
+          </div>
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            class="mat-elevation-z8 report-table"
+          >
+            <!-- Customer ID Column -->
+            <ng-container matColumnDef="rental_id">
+              <th mat-header-cell *matHeaderCellDef>Rental ID</th>
+              <td mat-cell *matCellDef="let customer">
+                {{ customer.rental_id }}
+              </td>
+            </ng-container>
+  
+            <!-- Store ID Column -->
+            <ng-container matColumnDef="rental_date">
+              <th mat-header-cell *matHeaderCellDef>Rental Date</th>
+              <td mat-cell *matCellDef="let customer">
+                {{ customer.rental_date | date : "MM/dd/yyyy" }}
+              </td>
+            </ng-container>
+  
+            <!-- Name Column -->
+            <ng-container matColumnDef="return_date">
+              <th mat-header-cell *matHeaderCellDef>Return Date</th>
+              <td mat-cell *matCellDef="let customer">
+                {{ customer.return_date | date : "MM/dd/yyyy" }}
+              </td>
+            </ng-container>
+  
+            <!-- Email Column -->
+            <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let customer">{{ customer.amount }}</td>
+            </ng-container>
+  
+            <ng-container matColumnDef="delete">
+              <th mat-header-cell *matHeaderCellDef>Delete Rental</th>
+              <td mat-cell *matCellDef="let customer">
+                <button (click)="deleteRental(customer.rental_id)">
+                  Delete Rental
+                </button>
+              </td>
+            </ng-container>
+  
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 20]"
+            showFirstLastButtons
+            aria-label="Select page of customer details"
+          >
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

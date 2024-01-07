@@ -1,0 +1,164 @@
+<div class="transaction-dashboard">
+  <div class="row">
+    <!-- RENTAL PANEL -->
+    <div class="col-lg-8 col-md-12">
+      <div class="customer-search">
+        <div class="customer-heading">
+          <form class="customer-search-form">
+            <input
+              type="text"
+              placeholder="Search Customers"
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete
+              #auto="matAutocomplete"
+              (optionSelected)="onCustomerSelect($event.option)"
+            >
+              <mat-option
+                *ngFor="let customer of filteredCustomers | async"
+                [value]="
+
+                  customer.first_name +
+                  ' ' +
+                  customer.last_name + ' ' + customer.customer_id
+                "
+              >
+               {{ customer.first_name }}
+                {{ customer.last_name }} {{ customer.customer_id }}
+              </mat-option>
+            </mat-autocomplete>
+          </form>
+          <div class="rental-search">
+              <input
+              class="rental-input"
+                matInput
+                (keyup)="applyFilter($event)"
+                placeholder="Search Rental Films"
+                #input
+              />
+              <mat-icon>search</mat-icon>
+          </div>
+        </div>
+      </div>
+      <div class="rental-panel">
+        <div class="row">
+          <div class="col-12">
+            <div class="report-table">
+              <table
+                mat-table
+                [dataSource]="dataSource"
+                class="mat-elevation-z8 report-table"
+              >
+                <!-- Film ID Column -->
+                <ng-container matColumnDef="film_id">
+                  <th mat-header-cell *matHeaderCellDef>Film ID</th>
+                  <td mat-cell *matCellDef="let rental">
+                    {{ rental.film_id }}
+                  </td>
+                </ng-container>
+
+                <!-- Store ID Column -->
+                <ng-container matColumnDef="title">
+                  <th mat-header-cell *matHeaderCellDef>Title</th>
+                  <td mat-cell *matCellDef="let rental">
+                    {{ rental.title }}
+                  </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="rental_duration">
+                  <th mat-header-cell *matHeaderCellDef>Rental Duration</th>
+                  <td mat-cell *matCellDef="let rental">
+                    {{ rental.rental_duration }}
+                  </td>
+                </ng-container>
+
+                <!-- Email Column -->
+                <ng-container matColumnDef="rental_rate">
+                  <th mat-header-cell *matHeaderCellDef>Rental Rate</th>
+                  <td mat-cell *matCellDef="let rental">
+                    {{ rental.rental_rate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="add">
+                  <th mat-header-cell *matHeaderCellDef>Add Rental</th>
+                  <td mat-cell *matCellDef="let rental">
+                    <button class="rental-add" (click)="addRental(rental)">
+                      Add Rental
+                    </button>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                ></tr>
+              </table>
+              <mat-paginator
+                [pageSizeOptions]="[10]"
+                showFirstLastButtons
+                aria-label="Select page of customer details"
+              >
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- RENTAL PANEL -->
+
+    <!-- CUSTOMER PANEL -->
+    <div class="col-lg-4 col-md-12">
+      <div class="customer-panel">
+        <div class="customer-heading">
+        </div>
+        <div class="customer-rentals">
+          <div class="rentals">
+            <h2 class="mb-5">Rental Cart</h2>
+            <div class="rental-item d-flex justify-content-between my-1" *ngFor="let rental of rental_cart">
+                <p>{{ rental.title }}</p>
+                <p>${{ rental.rental_rate }}</p>
+                <button (click)="deleteRental(rental)">REMOVE</button>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="total">
+          <div class="cart-total d-flex justify-content-between">
+            <h2>Total:</h2>
+            <h2>${{ cart_total.toFixed(2) }}</h2>
+          </div>
+          <hr>
+          <div class="cart-buttons">
+            <button class="empty-cart" (click)="emptyCart()">Empty Cart</button>
+            <button data-toggle="modal" data-target="checkoutModal" class="pay-now" (click)="completeTransaction()">Pay Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END CUSTOMER PANEL -->
+  </div>
+</div>
+<app-modal #alertModal></app-modal>
+
+<!-- MODAL -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="checkoutModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="container-1600">
+    <!-- BREADCRUMB SECTION -->
+    <div class="row">
+      <div class="breadcrumb ms-5 mt-5">
+        <div class="col-12 d-flex" [routerLink]="['/']">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+          <p>Add Customer</p>
+        </div>
+      </div>
+      <hr />
+    </div>
+    
+    <!-- CUSTOMER DETAILS -->
+    <div class="row">
+      <div class="col-12">
+        <div class="container customer-profile">
+          <form #form="ngForm" (ngSubmit)="onEnter()">
+            <div class="customer-details">
+              <div class="heading mb-2">
+                <div class="col-10">
+                  <p>Personal Information</p>
+                </div>
+              </div>
+              <!-- Name -->
+              <div class="row g-3 mb-3 p-2">
+                <div class="col-5">
+                  <label for="First Name">First Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="{{ first_name }}"
+                    id="first_name"
+                    [(ngModel)]="first_name"
+                    name="first_name"
+                    required
+                  />
+                </div>
+                <div class="col-2">
+                  <label for="Middle Initial">Middle Initial</label>
+                  <input type="text" class="form-control" value="" />
+                </div>
+                <div class="col-5">
+                  <label for="Last Name">Last Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder=""
+                    value="{{ last_name }}"
+                    id="last_name"
+                    [(ngModel)]="last_name"
+                    name="last_name"
+                    required
+                  />
+                </div>
+              </div>
+              <!-- Email -->
+              <div class="row g-3 mb-3 p-2">
+                <div class="col-12">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="{{ email }}"
+                    id="email"
+                    [(ngModel)]="email"
+                    name="email"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row g-3 mb-3 p-2">
+              <div class="col-12">
+                <div class="active-status">
+                  <p>Active Status</p>
+                  <p class="muted">
+                    Customers who have an active status will be automatically
+                    enrolled in promotional marketing campaigns and targeted
+                    advertising. Please gain customer consent before updating
+                    their account status.
+                  </p>
+                  <mat-checkbox
+                    class="example-margin"
+                    [checked]="activebool"
+                    (change)="toggleActiveStatus()"
+                    >Active</mat-checkbox
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 mb-2">
+              <button type="submit" class="btn btn-sm button-submit me-4 mb-1">
+                Save Customer
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-modal #modal></app-modal>

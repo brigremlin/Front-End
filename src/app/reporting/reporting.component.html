@@ -1,0 +1,18 @@
+<div class="container-1600">
+  <div class="row ms-5 pt-5">
+    <div class="col-12">
+      <h3>Reporting</h3>
+    </div>
+  </div>
+  <div class="row ms-5 pt-5">
+    <div class="col-12">
+      <select #reportOptions (change)="onSelected($event.target.value)">
+        <option value="" [defaultSelected]="">Select Report</option>
+        <option value="customer">Customer Report</option>
+        <option value="film" routerLink="/{{selectedReport}}">Film Report</option>
+        <option value="rental" routerLink="/{{selectedReport}}">Rental Report</option>
+        <option value="store" routerLink="/{{selectedReport}}">Store Report</option>
+      </select>
+    </div>
+  </div>
+</div>

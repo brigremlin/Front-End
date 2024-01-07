@@ -1,0 +1,61 @@
+<div class="header">
+  <div class="row">
+    <div class="col-lg-8 col-md-12">
+      <div class="search-section d-flex align-content-center">
+        <h3>Customer Dashboard</h3>
+        <div class="search-field">
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            placeholder="Find Customer"
+          />
+          <mat-icon>search</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div class="add-btn d-flex align-content-center">
+        <button routerLink="/new-customer">
+          <mat-icon>person_add</mat-icon>Add Customer
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="customer-listings">
+  <div class="headings">
+    <div class="name-heading">Customer Info</div>
+    <div class="customer-heading">ID</div>
+    <div class="active-status">Status</div>
+  </div>
+  <ul
+    *ngFor="
+      let customer of customers
+        | async
+        | filter : searchText
+        | paginate : { itemsPerPage: 5, currentPage: p }
+    "
+  >
+    <li
+      class="customer-list"
+      [routerLink]="['/customer', customer.customer_id]"
+    >
+      <div class="name">
+        <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+        <p class="customer-email">{{ customer.email }}</p>
+      </div>
+      <div class="customer-id">
+        <p>{{ customer.customer_id }}</p>
+      </div>
+      <div class="icons active" *ngIf="customer.activebool">
+        <p>Active</p>
+      </div>
+      <div class="icons inactive" *ngIf="!customer.activebool">
+        <p>Inactive</p>
+      </div>
+    </li>
+  </ul>
+  <div class="pagination">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+</div>
