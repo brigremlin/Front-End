@@ -46,7 +46,7 @@ export class NewCustomerComponent {
   }
 
   onEnter() {
-    if (this.form.invalid || (this.form.touched && this.form.dirty)) {
+    if (this.form.invalid) {
       this.modal.open("Your form is invalid. Please check your information and resubmit.");
     } else {
       let customer_id = this.getRandomNum(600, 9900);

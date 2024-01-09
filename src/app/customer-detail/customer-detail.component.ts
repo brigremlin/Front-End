@@ -101,6 +101,7 @@ export class CustomerDetailComponent {
       (1000 * 60 * 60 * 24 * 7);
     this.rentalAverage =
       (this.customer_rentals.length / this.rentalWeeks) * 100;
+      console.log(this.rentalAverage);
   }
 
   calculateTopRentals() {
@@ -143,6 +144,7 @@ export class CustomerDetailComponent {
       active: this.active,
     };
     this.customerService.updateCustomer(params).subscribe((res) => {
+      location.reload();
     });
   }
 
