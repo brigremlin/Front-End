@@ -14,30 +14,30 @@ export class RentalService {
   constructor(private http: HttpClient) { }
 
   getRentals(id) {
-    return this.http.get<any>(this.url + '/customerRentals/' + id);
+    return this.http.get<any>('/api/customerRentals/' + id);
   }
 
   getAllRentals() {
-    return this.http.get<any>(this.url + '/getCustomerRentals');
+    return this.http.get<any>('/api/getCustomerRentals');
   }
 
   getRentalsByStore(id) {
-    return this.http.get<any>(this.url + '/getRentalsByStore/' + id);
+    return this.http.get<any>('/api/getRentalsByStore/' + id);
   }
 
   getRentalCategory(id) {
-    return this.http.get<any>(this.url + '/getCategory/' + id);
+    return this.http.get<any>('/api/getCategory/' + id);
   }
 
   postPayment(payment) {
-    return this.http.post<any>(this.url + '/postPayment', payment);
+    return this.http.post<any>('/api/postPayment', payment);
   }
 
   addCustomerRental(rental) {
-    return this.http.post<any>(this.url + '/addCustomerRental', rental);
+    return this.http.post<any>('/api/addCustomerRental', rental);
   }
 
   postCustomerRentals(rental) {
-    return this.http.post<any>(this.url + '/postCustomerRental', rental);
+    return this.http.post<any>('/api/postCustomerRental', rental);
   }
 }

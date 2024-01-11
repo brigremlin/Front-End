@@ -10,14 +10,14 @@ export class FilmService {
   constructor(private http: HttpClient) { }
 
   getFilms() {
-    return this.http.get<any>(this.url + '/getAllFilms');
+    return this.http.get<any>('/api/getAllFilms');
   }
 
   getInventory() {
-    return this.http.get<any>(this.url + '/getInventory');
+    return this.http.get<any>('/api/getInventory');
   }
 
   getInventoryId(id) {
-    return this.http.get<any>(this.url + '/getInventoryId/' + id);
+    return this.http.get<any>('/api/getInventoryId/' + id);
   }
 }
