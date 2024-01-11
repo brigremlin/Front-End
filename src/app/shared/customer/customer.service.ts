@@ -7,32 +7,34 @@ import { Customer } from './customer.model';
 })
 export class CustomerService {
 
+  url = "http://54.91.60.242:8080";
+
   customers: Customer[] = [];
 
   constructor(private http: HttpClient) {}
 
   getCustomers() {
-    return this.http.get<any>('http://localhost:8080/getCustomers');
+    return this.http.get<any>(this.url + '/getCustomers');
   }
 
   findCustomer(customer_id) {
-    return this.http.get<any>('http://localhost:8080/findCustomer/' + customer_id);
+    return this.http.get<any>(this.url + '/findCustomer/' + customer_id);
   }
 
   updateCustomer(customer) {
-    return this.http.post<any>('http://localhost:8080/updateCustomer', customer);
+    return this.http.post<any>(this.url + '/updateCustomer', customer);
   }
 
   getCustomerRentals(id) {
-    return this.http.get<any>('http://localhost:8080/getRentalsByCustomer/' + id);
+    return this.http.get<any>(this.url + '/getRentalsByCustomer/' + id);
   }
 
   deleteRental(id) {
-    return this.http.delete<any>('http://localhost:8080/deleteRental/' + id);
+    return this.http.delete<any>(this.url + '/deleteRental/' + id);
   }
 
   addCustomer(customer) {
-    return this.http.post<any>('http://localhost:8080/addCustomer', customer);
+    return this.http.post<any>(this.url + '/addCustomer', customer);
   }
 
 
