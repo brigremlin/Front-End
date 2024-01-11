@@ -11,6 +11,7 @@ import { DatePipe } from '@angular/common';
 import { Film } from '../shared/film/film.model';
 import { ModalComponent } from '../components/modal/modal.component';
 import { RentalService } from '../shared/rental/rental.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction',
@@ -46,7 +47,8 @@ export class TransactionComponent implements OnInit {
     private customerService: CustomerService,
     private filmService: FilmService,
     private datePipe: DatePipe,
-    private rentalService: RentalService
+    private rentalService: RentalService,
+    private router: Router
   ) {}
 
   async ngOnInit() {
@@ -144,6 +146,9 @@ export class TransactionComponent implements OnInit {
               };
               this.rentalService.postCustomerRentals(rentalParams).subscribe(rentalRes => {
                 this.openModal("Your transaction is complete!");
+                setTimeout(() => {
+                  this.router.navigateByUrl('/customer/' + this.customer_id);
+                }, 2000);
               })
             })
           })

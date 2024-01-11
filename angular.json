@@ -69,7 +69,8 @@
             }
           },
           "options": {
-            "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "capstone-front-end:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "defaultConfiguration": "development"
         },
