@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    url: "http://107.23.222.142:8080"
+    url: "https://spring-boot-backend-ff9da4fb081f.herokuapp.com"
   };
