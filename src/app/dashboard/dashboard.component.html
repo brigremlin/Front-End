@@ -41,7 +41,7 @@
       [routerLink]="['/customer', customer.customer_id]"
     >
       <div class="name">
-        <p>{{ customer.first_name }} {{ customer.last_name }}</p>
+        <p>{{ customer.first_name }} {{ customer.last_name }}<span class="muted">{{ customer.customer_id }}</span></p>
         <p class="customer-email">{{ customer.email }}</p>
       </div>
       <div class="customer-id">

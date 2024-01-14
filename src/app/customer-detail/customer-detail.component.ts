@@ -90,15 +90,15 @@ export class CustomerDetailComponent {
   }
 
   getRentalAverage() {
-    let startDate = new Date(this.todaysDate.getFullYear(), 0, 1);
-    this.rentalWeeks =
-      Math.floor(
-        Date.UTC(
-          this.todaysDate.getFullYear(),
-          this.todaysDate.getMonth() + 1
-        ) - Date.UTC(startDate.getFullYear(), startDate.getMonth())
-      ) /
-      (1000 * 60 * 60 * 24 * 7);
+    let startDate = new Date(this.todaysDate.getFullYear(), 0, 1); 
+    this.rentalWeeks = 47;
+      // Math.floor(
+      //   Date.UTC(
+      //     this.todaysDate.getFullYear(),
+      //     this.todaysDate.getMonth() + 1
+      //   ) - Date.UTC(startDate.getFullYear(), startDate.getMonth())
+      // ) /
+      // (1000 * 60 * 60 * 24 * 7);
     this.rentalAverage =
       (this.customer_rentals.length / this.rentalWeeks) * 100;
       console.log(this.rentalAverage);

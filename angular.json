@@ -68,10 +68,6 @@
               "browserTarget": "capstone-front-end:build:development"
             }
           },
-          "options": {
-            "browserTarget": "capstone-front-end:build",
-            "proxyConfig": "proxy.conf.json"
-          },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
@@ -101,5 +97,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

@@ -57,6 +57,7 @@
 .name-heading {
   grid-column: 1 / span 2;
   align-items: center;
+  line-height: 1;
 }
 .customer-list .phone {
   display: flex;
@@ -195,5 +196,49 @@
   .add-btn button {
     margin-right: 2rem;
     margin-bottom: 1rem;
+  }
+}
+
+@media(max-width:768px) {
+  .search-section {
+    padding-block: 0;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .customer-listings {
+    margin-inline: 1rem;
+    border-radius: 20px;
+  }
+  .header {
+    margin: 0;
+  }
+  .search-section input {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .add-btn {
+    justify-content: center;
+  }
+  .active p {
+    padding: 0;
+  }
+  .pagination {
+    padding-top: 0;
+  }
+  .customer-list {
+    grid-template-columns: 1fr;
+  }
+  .customer-id {
+    padding-left: 0;
+    display: flex;
+    display: none;
+  }
+  .muted {
+    padding-left: .5rem;
+  }
+}
+@media(min-width:768px) {
+  .muted {
+    display: none;
   }
 }
