@@ -1,4 +1,4 @@
-<div class="container-1600">
+<div class="container-1600 px-3">
   <div class="row pt-5">
     <div class="col-12">
       <div class="breadcrumb ms-5">
@@ -19,31 +19,41 @@
       <!-- Customer ID Column -->
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>Customer ID</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.customer_id }}</td>
+        <td mat-cell *matCellDef="let customer">
+          <span class="mobile-label">Customer ID:</span>
+          {{ customer.customer_id }}</td>
       </ng-container>
 
       <!-- Store ID Column -->
       <ng-container matColumnDef="store">
         <th mat-header-cell *matHeaderCellDef>Store ID</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.store_id }}</td>
+        <td mat-cell *matCellDef="let customer">
+          <span class="mobile-label">Store ID:</span>
+          {{ customer.store_id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.first_name }}</td>
+        <td mat-cell *matCellDef="let customer">
+          <span class="mobile-label">Name:</span>
+          {{ customer.first_name }}</td>
       </ng-container>
 
       <!-- Email Column -->
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef>Email</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.email }}</td>
+        <td mat-cell *matCellDef="let customer">
+          <span class="mobile-label">Email:</span>
+          {{ customer.email }}</td>
       </ng-container>
 
       <!-- Active Column -->
       <ng-container matColumnDef="active">
         <th mat-header-cell *matHeaderCellDef>Active Status</th>
-        <td mat-cell *matCellDef="let customer">{{ customer.activebool }}</td>
+        <td mat-cell *matCellDef="let customer">
+          <span class="mobile-label">Active Status:</span>
+          {{ customer.activebool }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

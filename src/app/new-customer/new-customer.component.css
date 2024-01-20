@@ -16,3 +16,12 @@ button[type="submit"] {
   font-size: 0.875rem;
   line-height: 0.875;
 }
+
+@media(max-width:568px) {
+  .form-content {
+    flex-direction: column;
+  }
+  .form-content > * {
+    width: 100%;
+  }
+}

@@ -54,6 +54,7 @@
                 <ng-container matColumnDef="film_id">
                   <th mat-header-cell *matHeaderCellDef>Film ID</th>
                   <td mat-cell *matCellDef="let rental">
+                    <span class="mobile-label">Film ID:</span>
                     {{ rental.film_id }}
                   </td>
                 </ng-container>
@@ -62,6 +63,7 @@
                 <ng-container matColumnDef="title">
                   <th mat-header-cell *matHeaderCellDef>Title</th>
                   <td mat-cell *matCellDef="let rental">
+                    <span class="mobile-label">Title:</span>
                     {{ rental.title }}
                   </td>
                 </ng-container>
@@ -70,6 +72,7 @@
                 <ng-container matColumnDef="rental_duration">
                   <th mat-header-cell *matHeaderCellDef>Rental Duration</th>
                   <td mat-cell *matCellDef="let rental">
+                    <span class="mobile-label">Rental Duration:</span>
                     {{ rental.rental_duration }}
                   </td>
                 </ng-container>
@@ -78,6 +81,7 @@
                 <ng-container matColumnDef="rental_rate">
                   <th mat-header-cell *matHeaderCellDef>Rental Rate</th>
                   <td mat-cell *matCellDef="let rental">
+                    <span class="mobile-label">Rental Rate:</span>
                     {{ rental.rental_rate }}
                   </td>
                 </ng-container>
@@ -98,7 +102,7 @@
                 ></tr>
               </table>
               <mat-paginator
-                [pageSizeOptions]="[10]"
+                [pageSizeOptions]="[5]"
                 showFirstLastButtons
                 aria-label="Select page of customer details"
               >

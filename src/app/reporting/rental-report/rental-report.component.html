@@ -19,13 +19,16 @@
       <!-- Customer ID Column -->
       <ng-container matColumnDef="customer_id">
         <th mat-header-cell *matHeaderCellDef>Customer ID</th>
-        <td mat-cell *matCellDef="let rental">{{ rental.customer_id }}</td>
+        <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Customer ID:</span>
+          {{ rental.customer_id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="customer_name">
         <th mat-header-cell *matHeaderCellDef>Customer Name</th>
         <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Customer Name:</span>
           {{ rental.first_name }} {{ rental.last_name }}
         </td>
       </ng-container>
@@ -33,13 +36,16 @@
       <!-- Rental ID Column -->
       <ng-container matColumnDef="rental_id">
         <th mat-header-cell *matHeaderCellDef>Rental ID</th>
-        <td mat-cell *matCellDef="let rental">{{ rental.rental_id }}</td>
+        <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Rental ID:</span>
+          {{ rental.rental_id }}</td>
       </ng-container>
 
       <!-- Rental Date Column -->
       <ng-container matColumnDef="rental_date">
         <th mat-header-cell *matHeaderCellDef>Rental Date</th>
         <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Rental ID:</span>
           {{ rental.rental_date | date : "MM/dd/yyyy" }}
         </td>
       </ng-container>
@@ -48,6 +54,7 @@
       <ng-container matColumnDef="return_date">
         <th mat-header-cell *matHeaderCellDef>Return Date</th>
         <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Return Date:</span>
           {{ rental.return_date | date : "MM/dd/yyyy" }}
         </td>
       </ng-container>
@@ -55,13 +62,17 @@
       <!-- Staff ID Column -->
       <ng-container matColumnDef="staff_id">
         <th mat-header-cell *matHeaderCellDef>Staff ID</th>
-        <td mat-cell *matCellDef="let rental">{{ rental.staff_id }}</td>
+        <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Staff ID:</span>
+          {{ rental.staff_id }}</td>
       </ng-container>
 
       <!-- Amount Column -->
       <ng-container matColumnDef="amount">
         <th mat-header-cell *matHeaderCellDef>Amount</th>
-        <td mat-cell *matCellDef="let rental">{{ rental.amount }}</td>
+        <td mat-cell *matCellDef="let rental">
+          <span class="mobile-label">Amount:</span>
+          {{ rental.amount }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -18,3 +18,49 @@ button {
   box-shadow: none;
   height: 50px;
 }
+@media(max-width:1200px) {
+  .mat-mdc-table {
+    margin: auto;
+    min-width: unset;
+    width: 90%;
+    border-radius: 20px;
+  }
+}
+@media(max-width:768px) {
+  .breadcrumb {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+  .col-12, .col-2 {
+    width: 100%;
+  }
+  .mobile-label {
+    width: 25%;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-mdc-table .mdc-data-table__header-row {
+    display: none;
+  }
+  .mat-mdc-table .mdc-data-table__row { 
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+    height: fit-content;
+    display: flex;
+    padding-block: 1rem;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+  }
+  .mat-mdc-paginator-range-actions {
+    display: inline !important;
+  }
+  .mdc-data-table__cell {
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}

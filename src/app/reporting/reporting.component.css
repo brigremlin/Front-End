@@ -9,3 +9,9 @@ select {
     min-width: 400px;
 }
 
+@media(max-width: 568px) {
+    select {
+        min-width: unset;
+        width: 90%;
+    }
+}

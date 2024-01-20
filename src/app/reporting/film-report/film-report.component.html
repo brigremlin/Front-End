@@ -19,37 +19,49 @@
       <!-- Film ID Column -->
       <ng-container matColumnDef="film_id">
         <th mat-header-cell *matHeaderCellDef>Film ID</th>
-        <td mat-cell *matCellDef="let film">{{ film.film_id }}</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Film ID:</span>
+          {{ film.film_id }}</td>
       </ng-container>
 
       <!-- Name Column -->
       <ng-container matColumnDef="title">
         <th mat-header-cell *matHeaderCellDef>Title</th>
-        <td mat-cell *matCellDef="let film">{{ film.title }}</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Title:</span>
+          {{ film.title }}</td>
       </ng-container>
 
       <!-- Rental Duration Column -->
       <ng-container matColumnDef="rental_duration">
         <th mat-header-cell *matHeaderCellDef>Rental Duration</th>
-        <td mat-cell *matCellDef="let film">{{ film.rental_duration }} days</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Rental Duration:</span>
+          {{ film.rental_duration }} days</td>
       </ng-container>
 
       <!-- Rental Rate Column -->
       <ng-container matColumnDef="rental_rate">
         <th mat-header-cell *matHeaderCellDef>Rental Rate</th>
-        <td mat-cell *matCellDef="let film">${{ film.rental_rate }}</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Rental Rate:</span>
+          ${{ film.rental_rate }}</td>
       </ng-container>
 
       <!-- Replacement Cost Column -->
       <ng-container matColumnDef="replacement_cost">
         <th mat-header-cell *matHeaderCellDef>Replacement Cost</th>
-        <td mat-cell *matCellDef="let film">${{ film.replacement_cost }}</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Replacement Cost:</span>
+          ${{ film.replacement_cost }}</td>
       </ng-container>
 
       <!-- Rating Column -->
       <ng-container matColumnDef="rating">
         <th mat-header-cell *matHeaderCellDef>Rating</th>
-        <td mat-cell *matCellDef="let film">{{ film.rating }}</td>
+        <td mat-cell *matCellDef="let film">
+          <span class="mobile-label">Rating:</span>
+          {{ film.rating }}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

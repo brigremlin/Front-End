@@ -225,3 +225,33 @@ button[type="submit"] {
   }
 }
 
+@media(max-width:768px) {
+  .form-details {
+    flex-direction: column;
+  }
+  .form-details .col-3 {
+    width: 100%;
+  }
+  .mdc-text-field {
+    min-width: unset;
+  }
+}
+@media(max-width:992px) {
+  .rental-dollars p {
+    font-size: 2.5rem;
+  }
+  .total-spent {
+    height: unset;
+  }
+  .highlight-square {
+    width: 100%;
+  }
+  .col-12:has(.highlight-square), .col-md-4:has(.highlight-square) {
+    margin-bottom: 1rem;
+  }
+}
+@media(max-width:1400px) {
+  .top-rented-films p {
+    font-size: 1.5rem;
+  }
+} 

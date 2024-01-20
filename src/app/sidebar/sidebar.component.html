@@ -6,17 +6,17 @@
       </div>
 
       <div class="sidebar-buttons">
-        <button mat-button class="menu-button" routerLink="/">
+        <button mat-button class="menu-button" routerLink="/" (click)="sidenav.toggle()">
           <mat-icon>home</mat-icon>
           <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/reporting">
+        <button mat-button class="menu-button" routerLink="/reporting" (click)="sidenav.toggle()">
           <mat-icon>description</mat-icon>
           <span>Reports</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/transaction">
+        <button mat-button class="menu-button" routerLink="/transaction" (click)="sidenav.toggle()">
           <mat-icon> attach_money</mat-icon>
           <span>New Transaction</span>
         </button>
